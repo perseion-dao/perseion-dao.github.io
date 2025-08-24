@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perseion DAO | Building the Future of Decentralized Value</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#00F5D4', // Un verde azulado/turquesa vibrante
+                        'dark-bg': '#050A14',
+                        'card-bg': '#0B121F',
+                        'light-text': '#E0E0E0',
+                        'subtle-text': '#8892B0',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #050A14;
+            color: #E0E0E0;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #00F5D4, #E0E0E0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 245, 212, 0.15);
+        }
+
+        .feature-card {
+            transition: all 0.3s ease;
+            border: 1px solid #1A2332;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: #00F5D4;
+        }
+
+        .project-card {
+            background-color: #0B121F;
+            /* Fondo sólido */
+            border: 1px solid #1A2332;
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 300px;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 245, 212, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="bg-dark-bg/80 backdrop-blur-lg border-b border-card-bg/50 py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-3 group">
+                <!-- LOGOTIPO ÓRBITAS DORADAS -->
+                <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M75 50C75 63.8071 63.8071 75 50 75C36.1929 75 25 63.8071 25 50C25 36.1929 36.1929 25 50 25C63.8071 25 75 36.1929 75 50Z"
+                        fill="#00F5D4" />
+                    <path d="M87.5 20C95.7843 32.8418 95.7843 67.1582 87.5 80" stroke="#D4AF37" stroke-width="12"
+                        stroke-linecap="round" />
+                </svg>
+                <span class="text-xl font-bold text-light-text">Perseion DAO</span>
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#mission"
+                    class="text-subtle-text hover:text-primary transition-colors duration-300">Mission</a>
+                <a href="#ecosystem"
+                    class="text-subtle-text hover:text-primary transition-colors duration-300">Ecosystem</a>
+                <a href="#contact"
+                    class="text-subtle-text hover:text-primary transition-colors duration-300">Contact</a>
+            </div>
+            <a href="https://x.com/perseion_dao" target="_blank" rel="noopener noreferrer"
+                class="hidden md:inline-block bg-card-bg border border-primary/30 text-primary py-2 px-5 rounded-lg hover:bg-primary hover:text-dark-bg transition-all duration-300">
+                Follow Us
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-[90vh] flex items-center justify-center bg-dark-bg">
+        <div class="container mx-auto px-4 md:px-6 text-center">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                <span class="gradient-text">Building the Future</span>
+                <span class="block">of Decentralized Value</span>
+            </h1>
+            <p class="text-lg md:text-xl text-subtle-text max-w-3xl mx-auto mb-10">
+                Perseion is a decentralized autonomous organization dedicated to researching, funding, and developing
+                foundational protocols that enhance the stability and capital efficiency of the DeFi ecosystem.
+            </p>
+            <div class="flex justify-center">
+                <a href="#ecosystem"
+                    class="btn-primary bg-primary text-dark-bg font-semibold py-3 px-8 rounded-lg inline-block">
+                    Explore Our Ecosystem
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="py-20 lg:py-28 bg-card-bg">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">Our Mission</h2>
+                <p class="text-lg text-subtle-text">We believe the future of finance is decentralized, but requires a
+                    new generation of stable, reliable, and capital-efficient assets. Our mission is to build them.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-dark-bg p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto"><i
+                            class="fas fa-flask text-2xl text-primary"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Research & Development</h3>
+                    <p class="text-subtle-text">We identify critical gaps in the DeFi infrastructure and incubate novel
+                        solutions, focusing on long-term sustainability and security.</p>
+                </div>
+                <div class="feature-card bg-dark-bg p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto"><i
+                            class="fas fa-rocket text-2xl text-primary"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Protocol Incubation</h3>
+                    <p class="text-subtle-text">We provide strategic funding and development resources to launch new
+                        protocols, guiding them from concept to mainnet and beyond.</p>
+                </div>
+                <div class="feature-card bg-dark-bg p-8 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 mx-auto"><i
+                            class="fas fa-shield-alt text-2xl text-primary"></i></div>
+                    <h3 class="text-xl font-bold mb-3">Treasury Management</h3>
+                    <p class="text-subtle-text">We actively manage a diversified treasury to ensure the long-term
+                        financial health of the DAO and its ecosystem of incubated projects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ecosystem Section -->
+    <section id="ecosystem" class="py-20 lg:py-28 bg-dark-bg">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">Our Incubated Ecosystem</h2>
+                <p class="text-lg text-subtle-text">A growing suite of protocols designed to enhance capital efficiency
+                    and unlock new opportunities in DeFi.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Aurelium Card -->
+                <a href="aurelium.html" class="block project-card group">
+                    <div>
+                        <div class="project-header">
+                            <h3 class="text-3xl font-bold text-light-text">Aurelium</h3>
+                            <div class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-lg">
+                                <svg class="w-6 h-6 text-[#D4AF37]" viewBox="0 0 24 24" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2L3 22H21L12 2Z" stroke="currentColor" stroke-width="2"
+                                        stroke-linejoin="round" />
+                                    <path d="M7.5 15.5L12 7L16.5 15.5" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-subtle-text mt-2">The gold standard of DeFi collateral. A decentralized synthetic
+                            asset pegged to the value of gold.</p>
+                    </div>
+                    <span class="font-semibold text-primary mt-6 self-start">Explore Protocol &rarr;</span>
+                </a>
+                <!-- Waterfall Rise Card -->
+                <a href="waterfallrise.html" class="block project-card group">
+                    <div>
+                        <div class="project-header">
+                            <h3 class="text-3xl font-bold text-light-text">Waterfall Rise</h3>
+                            <div class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-lg">
+                                <svg class="w-6 h-6 text-[#38bdf8]" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M3.75 12.75l3.75-3.75m0 0l3.75 3.75M7.5 9l3.75-3.75M3.75 12.75h16.5m-16.5 0v3.75c0 .621.504 1.125 1.125 1.125h14.25c.621 0 1.125-.504 1.125-1.125V12.75m-16.5 0h16.5" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-subtle-text mt-2">A zero-risk prediction market engine for exchanges to boost
+                            user engagement and trading volume.</p>
+                    </div>
+                    <span class="font-semibold text-primary mt-6 self-start">Explore Protocol &rarr;</span>
+                </a>
+                <!-- Perseion Earn Card -->
+                <a href="earn.html" class="block project-card group">
+                    <div>
+                        <div class="project-header">
+                            <h3 class="text-3xl font-bold text-light-text">Perseion Earn</h3>
+                            <div class="w-10 h-10 flex items-center justify-center bg-gray-800 rounded-lg">
+                                <svg class="w-6 h-6 text-[#B8860B]" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                    viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <p class="text-subtle-text mt-2">Access premier private equity funds through a fully tokenized,
+                            on-chain investment platform.</p>
+                    </div>
+                    <span class="font-semibold text-primary mt-6 self-start">Explore Protocol &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / CTA Section -->
+    <section id="contact" class="py-20 lg:py-28 bg-card-bg">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-4">Become a Part of Perseion</h2>
+                <p class="text-lg text-subtle-text mb-8">Whether you are a developer, a DeFi protocol, or a community
+                    member, there are multiple ways to get involved. Join us in building a more resilient and stable
+                    decentralized future.</p>
+                <!-- BOTONES ACTUALIZADOS -->
+                <div class="flex justify-center space-x-4">
+                    <a href="mailto:perseion@financier.com"
+                        class="btn-primary bg-primary text-dark-bg font-semibold py-3 px-8 rounded-lg inline-block">
+                        Send us an Email
+                    </a>
+                    <a href="https://x.com/perseion_dao" target="_blank" rel="noopener noreferrer"
+                        class="btn-primary bg-dark-bg border border-primary/30 text-primary font-semibold py-3 px-8 rounded-lg inline-block">
+                        Follow on X
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-bg border-t border-card-bg/50 py-8">
+        <div class="container mx-auto px-4 md:px-6 text-center text-subtle-text">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://x.com/perseion_dao" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-primary transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-discord"></i></a>
+                <a href="#" class="hover:text-primary transition-colors"><i class="fab fa-github"></i></a>
+            </div>
+            <p>&copy; 2025 Perseion DAO. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

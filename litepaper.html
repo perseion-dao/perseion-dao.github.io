@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurelium Whitepaper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37',
+                        dark: '#0F0F0F',
+                        darker: '#080808',
+                        light: '#F5F5F5',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #0F0F0F;
+            color: #F5F5F5;
+            scroll-behavior: smooth;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        .content-section h2 {
+            font-size: 1.875rem;
+            color: #D4AF37;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #374151;
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            color: #F5F5F5;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section p,
+        .content-section ul {
+            margin-bottom: 1.5rem;
+            line-height: 1.75;
+            color: #D1D5DB;
+        }
+
+        .content-section ul {
+            list-style-position: inside;
+            list-style-type: disc;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .content-section strong {
+            color: #F5F5F5;
+            font-weight: 600;
+        }
+
+        .content-section a {
+            color: #D4AF37;
+            text-decoration: underline;
+            transition: color 0.3s;
+        }
+
+        .content-section a:hover {
+            color: #F5F5F5;
+        }
+
+        .sidebar-link {
+            transition: all 0.3s;
+            border-left: 2px solid transparent;
+        }
+
+        .sidebar-link:hover,
+        .sidebar-link.active {
+            color: #D4AF37;
+            border-left-color: #D4AF37;
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="bg-darker/70 backdrop-blur-lg border-b border-gray-800/50 py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4 md:px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3 group">
+                <svg class="w-8 h-8 text-gold" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L3 22H21L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+                    <path d="M7.5 15.5L12 7L16.5 15.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <span class="text-xl font-bold text-light">Aurelium</span>
+            </a>
+            <a href="index.html"
+                class="bg-dark border border-gold/50 text-gold py-2 px-5 rounded-lg hover:bg-gold hover:text-darker transition-all duration-300">
+                Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <!-- Whitepaper Content -->
+    <div class="container mx-auto px-4 md:px-6 py-16 lg:py-24">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold gradient-text">Aurelium Litepaper</h1>
+            <p class="text-xl text-gray-400 mt-4">Version 1.0 - A New Foundation for DeFi Collateral</p>
+        </div>
+
+        <div class="lg:grid lg:grid-cols-4 lg:gap-12">
+            <!-- Sidebar -->
+            <aside class="lg:col-span-1 lg:sticky top-28 h-max mb-12 lg:mb-0">
+                <h3 class="text-xl font-bold mb-4">Table of Contents</h3>
+                <ul class="space-y-3" id="toc">
+                    <li><a href="#abstract" class="sidebar-link block p-2 text-gray-400">1. Abstract</a></li>
+                    <li><a href="#introduction" class="sidebar-link block p-2 text-gray-400">2. Introduction</a></li>
+                    <li><a href="#architecture" class="sidebar-link block p-2 text-gray-400">3. Protocol
+                            Architecture</a></li>
+                    <li><a href="#governance" class="sidebar-link block p-2 text-gray-400">4. Governance by Perseion
+                            DAO</a></li>
+                    <li><a href="#roadmap" class="sidebar-link block p-2 text-gray-400">5. Roadmap</a></li>
+                    <li><a href="#considerations" class="sidebar-link block p-2 text-gray-400">6. Protocol
+                            Considerations</a></li>
+                    <li><a href="#conclusion" class="sidebar-link block p-2 text-gray-400">7. Conclusion</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="lg:col-span-3 content-section">
+                <section id="abstract">
+                    <h2>1. Abstract</h2>
+                    <p>Aurelium (AUL ) is a decentralized synthetic asset, developed by Perseion DAO and deployed on the
+                        Base network. Its function is to provide a token, AUL, which maintains a soft-peg to the
+                        real-time market value of one troy ounce of gold. By leveraging a robust system of DAO-managed
+                        liquidity, a native crypto-redemption mechanism, and a clear governance structure through
+                        Perseion DAO, Aurelium provides a censorship-resistant, stable, and capital-efficient store of
+                        value. This paper outlines the protocol's architecture, its economic model, governance, and
+                        strategic roadmap.</p>
+                </section>
+
+                <section id="introduction">
+                    <h2>2. Introduction</h2>
+                    <p>The digital asset landscape is dominated by high volatility, creating a significant barrier to
+                        mainstream adoption. While fiat-collateralized stablecoins have addressed this, they reintroduce
+                        centralized counterparty risk. Aurelium is designed to solve this trilemma by providing a stable
+                        asset that is:</p>
+                    <ul>
+                        <li><strong>Decentralized:</strong> Governed by a transparent DAO, not a single corporation.
+                        </li>
+                        <li><strong>Stable:</strong> Pegged to gold, a historically proven store of value.</li>
+                        <li><strong>Trust-Minimized:</strong> Backed by transparent, on-chain mechanisms and treasury
+                            holdings.</li>
+                    </ul>
+                    <p>Aurelium aims to become the premier on-chain collateral, bridging the timeless stability of gold
+                        with the innovation of blockchain technology.</p>
+                </section>
+
+                <section id="architecture">
+                    <h2>3. Protocol Architecture</h2>
+                    <p>The Aurelium protocol is designed for simplicity, security, and reliability.</p>
+                    <h3>3.1. The AUL Token</h3>
+                    <p>AUL is an ERC-20 token on the Base network. Its total supply is fixed and was minted at genesis,
+                        ensuring no future inflationary pressures. The primary utility of AUL is to serve as a
+                        high-quality, stable collateral asset for DeFi lending and borrowing protocols.</p>
+                    <h3>3.2. Stability and Peg Mechanism</h3>
+                    <p>The value of AUL is anchored to the price of gold through two primary mechanisms:</p>
+                    <ul>
+                        <li><strong>Protocol-Owned Liquidity (PoL):</strong> Perseion DAO actively manages a treasury to
+                            provide deep liquidity for AUL against key assets (like ETH and USDC) on major Decentralized
+                            Exchanges. This ensures a stable market and facilitates efficient arbitrage to maintain the
+                            peg.</li>
+                        <li><strong>Native Redemption for PAXG:</strong> As a core security and trust-building feature,
+                            the protocol includes a smart contract that allows holders to redeem AUL for an equivalent
+                            value in Paxos Gold (PAXG), a fully-regulated and physically-backed gold token. This
+                            mechanism, funded by the Perseion DAO treasury, establishes a hard price floor for AUL and
+                            provides ultimate confidence in its value.</li>
+                    </ul>
+                    <h3>3.3. Oracle Integration</h3>
+                    <p>The protocol utilizes a decentralized oracle network (e.g., Chainlink) to source a
+                        tamper-resistant price feed for Gold/USD. This oracle is critical for the redemption mechanism
+                        to ensure fair value exchange between AUL and PAXG.</p>
+                </section>
+
+                <section id="governance">
+                    <h2>4. Governance by Perseion DAO</h2>
+                    <p>The Aurelium protocol is a core product developed and managed by Perseion DAO. The DAO's
+                        governance framework is responsible for all strategic decisions regarding the protocol, ensuring
+                        its long-term health and alignment with its mission. Key governance responsibilities include:
+                    </p>
+                    <ul>
+                        <li><strong>Treasury Management:</strong> Overseeing the assets in the treasury, including the
+                            PAXG reserves for the redemption mechanism and the funds allocated to the PoL strategy.</li>
+                        <li><strong>Parameter Adjustments:</strong> Setting and adjusting the fees and daily limits for
+                            the PAXG redemption mechanism.</li>
+                        <li><strong>Strategic Partnerships:</strong> Approving integrations of AUL as collateral in
+                            third-party lending protocols.</li>
+                        <li><strong>Protocol Upgrades:</strong> Authorizing any upgrades or changes to the Aurelium
+                            smart contracts to enhance security or functionality.</li>
+                    </ul>
+                    <p>This structure provides clear accountability and professional management while adhering to the
+                        principles of decentralized oversight.</p>
+                </section>
+
+                <section id="roadmap">
+                    <h2>5. Roadmap</h2>
+                    <h3>Phase 1: Genesis & Bootstrapping (Q4 2025)</h3>
+                    <ul>
+                        <li>Deployment of the AUL token contract on the Base network.</li>
+                        <li>Establishment of initial DAO-managed liquidity pools for AUL.</li>
+                        <li>Activation of the PAXG redemption mechanism with initial treasury funding.</li>
+                    </ul>
+                    <h3>Phase 2: Ecosystem Integration (Q1 2026)</h3>
+                    <ul>
+                        <li><strong>Secure the first integration of AUL as a collateral asset in a partner lending
+                                protocol.</strong></li>
+                        <li>Launch a liquidity incentive program on a major DEX to deepen public liquidity.</li>
+                        <li>Expand the treasury's PAXG reserves to support higher redemption volumes.</li>
+                    </ul>
+                    <h3>Phase 3: Protocol Expansion (Q2 2026)</h3>
+                    <ul>
+                        <li>Explore integrations with a wider range of DeFi protocols, including derivatives and options
+                            markets.</li>
+                        <li>Research and develop a potential native minting function for AUL, allowing its creation
+                            against other forms of collateral.</li>
+                        <li>Investigate multi-chain deployments to expand Aurelium's utility across the broader
+                            blockchain ecosystem.</li>
+                    </ul>
+                </section>
+
+                <section id="considerations">
+                    <h2>6. Protocol Considerations</h2>
+                    <p>Perseion DAO is committed to transparency and robust design. Users and partners should consider
+                        the following aspects of the protocol's mechanics:</p>
+                    <ul>
+                        <li><strong>Smart Contract Integrity:</strong> The AUL smart contract is designed to be simple
+                            and immutable where possible. It has undergone a comprehensive security audit to minimize
+                            the risk of vulnerabilities. The audit report is publicly available for review.</li>
+                        <li><strong>Market Dynamics:</strong> While the redemption mechanism provides a strong price
+                            floor, the price of AUL on secondary markets (DEXs) is determined by supply and demand.
+                            Minor deviations from the peg are expected and create the arbitrage opportunities that help
+                            maintain stability.</li>
+                        <li><strong>Oracle Reliability:</strong> The protocol's reliance on external price oracles is a
+                            critical dependency. We use industry-leading, decentralized oracle solutions to ensure data
+                            accuracy and uptime, mitigating the risk of oracle failure or manipulation.</li>
+                        <li><strong>Treasury Sufficiency:</strong> The effectiveness of the redemption mechanism depends
+                            on the PAXG reserves held by the Perseion DAO treasury. The DAO is committed to a
+                            conservative management strategy, ensuring that reserves are always sufficient to handle the
+                            established daily redemption limits.</li>
+                    </ul>
+                </section>
+
+                <section id="conclusion">
+                    <h2>7. Conclusion</h2>
+                    <p>Aurelium, as a flagship product of Perseion DAO, represents a significant step forward in the
+                        evolution of decentralized collateral. By providing a gold-pegged asset with a clear,
+                        trust-minimized backing mechanism and professional DAO oversight, AUL offers a compelling
+                        alternative to both volatile cryptocurrencies and centralized stablecoins. We believe Aurelium
+                        is poised to become a foundational element for a more secure and capital-efficient decentralized
+                        financial future.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+    <script>
+        // Active sidebar link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('#toc li a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+            navLi.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href') === `#${current}`) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

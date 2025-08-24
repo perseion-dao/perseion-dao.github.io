@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waterfall Rise - The Future of Exchange Engagement</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            /* slate-900 */
+            color: #f8fafc;
+            /* slate-50 */
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.85) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .feature-card,
+        .step-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover,
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animación "Digital Waterfall" */
+        .waterfall-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .stream {
+            position: absolute;
+            background: linear-gradient(to bottom, rgba(56, 189, 248, 0), rgba(56, 189, 248, 0.2));
+            width: 1px;
+            height: 50%;
+            animation: fall 20s linear infinite;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-100vh);
+            }
+
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        /* Animación "On-Scroll" */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full bg-slate-900/80 backdrop-blur-md z-50 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="#" class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold gradient-text">Waterfall Rise</span>
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#problem" class="text-slate-300 hover:text-sky-400 transition-colors duration-300">The
+                        Problem</a>
+                    <a href="#solution" class="text-slate-300 hover:text-sky-400 transition-colors duration-300">Our
+                        Solution</a>
+                    <a href="#features"
+                        class="text-slate-300 hover:text-sky-400 transition-colors duration-300">Features</a>
+                    <a href="#how-it-works" class="text-slate-300 hover:text-sky-400 transition-colors duration-300">How
+                        It Works</a>
+                </div>
+                <div class="hidden md:block">
+                    <a href="#contact"
+                        class="inline-flex items-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-md text-white bg-sky-600 hover:bg-sky-700 transition duration-300 transform hover:scale-105">
+                        Get In Touch
+                    </a>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button"
+                        class="inline-flex items-center justify-center p-2 rounded-md text-slate-400 hover:text-white hover:bg-slate-700 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-900/95 pb-4">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#problem"
+                    class="text-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">The
+                    Problem</a>
+                <a href="#solution"
+                    class="text-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Our
+                    Solution</a>
+                <a href="#features"
+                    class="text-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Features</a>
+                <a href="#how-it-works"
+                    class="text-slate-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">How It
+                    Works</a>
+                <a href="#contact"
+                    class="mt-2 block w-full text-center px-5 py-3 font-medium bg-sky-600 hover:bg-sky-700 rounded-md transition duration-300">Get
+                    In Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section class="hero-bg pt-32 pb-20 md:pt-48 md:pb-32 px-4 sm:px-6 lg:px-8">
+        <div class="waterfall-container" id="waterfall"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 reveal">
+                Unlock New Revenue Streams. <span class="gradient-text">Effortlessly.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8 reveal" style="transition-delay: 150ms;">
+                Integrate a sophisticated prediction market engine into your exchange. Boost user engagement and trading
+                volume with zero market risk with Prediction Futures.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 reveal"
+                style="transition-delay: 300ms;">
+                <a href="#contact"
+                    class="px-8 py-4 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-lg transition duration-300 transform hover:scale-105">
+                    Request a Demo
+                </a>
+                <a href="#solution"
+                    class="px-8 py-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold rounded-lg transition duration-300">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección "El Problema" -->
+    <section id="problem" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Your Users Demand More. <span class="gradient-text">Your
+                        Platform Can Deliver.</span></h2>
+                <p class="text-lg text-slate-400 max-w-3xl mx-auto">
+                    Modern traders seek fast-paced, engaging products. Developing these in-house is complex, costly, and
+                    introduces significant risk.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-slate-800/50 p-8 rounded-xl border border-slate-700/50 reveal">
+                    <div class="w-14 h-14 bg-sky-500/10 rounded-lg flex items-center justify-center mb-6"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-sky-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg></div>
+                    <h3 class="text-xl font-bold mb-3">Time-to-Market</h3>
+                    <p class="text-slate-400">Building sophisticated trading products from scratch takes months,
+                        delaying your competitive edge.</p>
+                </div>
+                <div class="feature-card bg-slate-800/50 p-8 rounded-xl border border-slate-700/50 reveal"
+                    style="transition-delay: 150ms;">
+                    <div class="w-14 h-14 bg-red-500/10 rounded-lg flex items-center justify-center mb-6"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-red-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg></div>
+                    <h3 class="text-xl font-bold mb-3">Market Risk</h3>
+                    <p class="text-slate-400">New products can expose your exchange to unpredictable market volatility
+                        and liquidity challenges.</p>
+                </div>
+                <div class="feature-card bg-slate-800/50 p-8 rounded-xl border border-slate-700/50 reveal"
+                    style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-amber-500/10 rounded-lg flex items-center justify-center mb-6"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-amber-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10 20l4-16m4 4l-4 4-4-4-4 4" />
+                        </svg></div>
+                    <h3 class="text-xl font-bold mb-3">Development Cost</h3>
+                    <p class="text-slate-400">Hiring specialized talent and maintaining complex infrastructure drains
+                        your core business resources.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección "Nuestra Solución" -->
+    <section id="solution" class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">The <span class="gradient-text">Waterfall Rise</span>
+                    Engine. Your Competitive Edge.</h2>
+                <p class="text-lg text-slate-400 max-w-3xl mx-auto">A fully managed prediction market solution that
+                    integrates seamlessly with your exchange platform.</p>
+            </div>
+            <div class="lg:grid lg:grid-cols-2 lg:gap-12 items-center">
+                <div class="mb-12 lg:mb-0 reveal" style="transition-delay: 150ms;">
+                    <div class="space-y-10">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-sky-500/10 text-sky-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg></div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Plug & Play Integration</h3>
+                                <p class="mt-2 text-slate-400">Our lightweight API allows for seamless integration in a
+                                    matter of days, not months. Get up and running with minimal engineering effort.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-green-500/10 text-green-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                    </svg></div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Zero Market Risk</h3>
+                                <p class="mt-2 text-slate-400">Our proprietary engine architecture ensures that your
+                                    exchange is never exposed to market volatility. Profitability is built-in.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div
+                                    class="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500/10 text-purple-400">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg></div>
+                            </div>
+                            <div class="ml-4">
+                                <h3 class="text-lg font-bold">Boost Engagement & Volume</h3>
+                                <p class="mt-2 text-slate-400">Offer the products your users are seeking on other
+                                    platforms, keeping them active and trading within your ecosystem.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative reveal" style="transition-delay: 300ms;">
+                    <div class="relative z-10 bg-slate-800/70 border border-slate-700/50 rounded-xl p-6 shadow-2xl">
+                        <h3 class="text-lg font-bold text-center mb-4">Waterfall Rise Architecture</h3>
+                        <div class="space-y-2">
+                            <div class="bg-slate-700/50 rounded p-4 text-center">
+                                <div class="font-medium text-sky-400">Your Exchange Platform</div>
+                            </div>
+                            <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-6 w-6 text-slate-500" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg></div>
+                            <div class="bg-slate-700/50 rounded p-4 text-center">
+                                <div class="font-medium text-sky-400">Secure API Gateway</div>
+                            </div>
+                            <div class="flex justify-center"><svg xmlns="http://www.w3.org/2000/svg"
+                                    class="h-6 w-6 text-slate-500" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7" />
+                                </svg></div>
+                            <div
+                                class="bg-gradient-to-r from-sky-500/20 to-sky-600/20 rounded p-4 text-center border border-sky-500/30">
+                                <div class="font-medium text-sky-300">Waterfall Rise Engine</div>
+                                <div class="text-xs text-slate-400 mt-1">Risk & Liquidity Management</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección "Características" -->
+    <section id="features" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">A World-Class Experience <span class="gradient-text">for
+                        Your Users</span></h2>
+                <p class="text-lg text-slate-400 max-w-3xl mx-auto">Sophisticated trading features designed to maximize
+                    engagement and retention.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card bg-slate-800/50 p-8 rounded-xl border border-slate-700/50 reveal">
+                    <div class="w-14 h-14 bg-sky-500/10 rounded-lg flex items-center justify-center mb-6"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-sky-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg></div>
+                    <h3 class="text-xl font-bold mb-3">Continuous Trading</h3>
+                    <p class="text-slate-400">Multiple, continuous timeframes for non-stop action. Keep users engaged
+                        with 5-minute, 15-minute, and hourly markets.</p>
+                </div>
+                <div class="feature-card bg-slate-800/50 p-8 rounded-xl border border-slate-700/50 reveal"
+                    style="transition-delay: 150ms;">
+                    <div class="w-14 h-14 bg-green-500/10 rounded-lg flex items-center justify-center mb-6"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg></div>
+                    <h3 class="text-xl font-bold mb-3">High, Stable Payouts</h3>
+                    <p class="text-slate-400">Offer attractive and consistent payouts that build user trust and loyalty.
+                        Our engine ensures sustainable profitability.</p>
+                </div>
+                <div class="feature-card bg-slate-800/50 p-8 rounded-xl border border-slate-700/50 reveal"
+                    style="transition-delay: 300ms;">
+                    <div class="w-14 h-14 bg-purple-500/10 rounded-lg flex items-center justify-center mb-6"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-400" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg></div>
+                    <h3 class="text-xl font-bold mb-3">Sleek & Intuitive UI</h3>
+                    <p class="text-slate-400">A clean, fast, and responsive interface that feels native to your
+                        platform. Fully customizable to match your brand identity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección "Cómo Funciona" -->
+    <section id="how-it-works" class="py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple Integration. <span class="gradient-text">Powerful
+                        Results.</span></h2>
+                <p class="text-lg text-slate-400 max-w-3xl mx-auto">Get started with Waterfall Rise in just three simple
+                    steps.</p>
+            </div>
+            <div class="relative">
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-700/50"
+                    style="transform: translateY(-50%  );"></div>
+                <div class="relative grid md:grid-cols-3 gap-12">
+                    <div class="step-card text-center reveal">
+                        <div
+                            class="flex items-center justify-center w-24 h-24 rounded-full bg-slate-800 border-2 border-slate-700 mb-6 mx-auto">
+                            <span class="text-3xl font-bold gradient-text">1</span></div>
+                        <h3 class="text-xl font-bold mb-3">Connect</h3>
+                        <p class="text-slate-400">Integrate our secure API endpoint with your existing platform.
+                            Documentation and support provided.</p>
+                    </div>
+                    <div class="step-card text-center reveal" style="transition-delay: 150ms;">
+                        <div
+                            class="flex items-center justify-center w-24 h-24 rounded-full bg-slate-800 border-2 border-slate-700 mb-6 mx-auto">
+                            <span class="text-3xl font-bold gradient-text">2</span></div>
+                        <h3 class="text-xl font-bold mb-3">Configure</h3>
+                        <p class="text-slate-400">Set your commission structure and branding. Customize timeframes and
+                            markets to match your user base.</p>
+                    </div>
+                    <div class="step-card text-center reveal" style="transition-delay: 300ms;">
+                        <div
+                            class="flex items-center justify-center w-24 h-24 rounded-full bg-slate-800 border-2 border-slate-700 mb-6 mx-auto">
+                            <span class="text-3xl font-bold gradient-text">3</span></div>
+                        <h3 class="text-xl font-bold mb-3">Launch</h3>
+                        <p class="text-slate-400">Go live and watch your trading volume grow. Our team provides ongoing
+                            support and optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto (sin formulario) -->
+    <section id="contact" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900">
+        <div
+            class="max-w-4xl mx-auto bg-gradient-to-r from-sky-500/10 via-slate-800/50 to-purple-500/10 border border-slate-700/50 rounded-2xl p-8 md:p-12 reveal">
+            <div class="text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Partner with Us to <span class="gradient-text">Redefine
+                        Trading</span></h2>
+                <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-8">Ready to boost your exchange's engagement and
+                    revenue? Contact our team to schedule a demo and learn how Waterfall Rise can transform your
+                    platform with Prediction Futures. Incubated by Perseion DAO.</p>
+                <a href="mailto:contact@waterfallrise.com"
+                    class="inline-block px-10 py-4 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded-lg transition duration-300 transform hover:scale-105">
+                    perseion@financier.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900/50 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto text-center text-slate-500">
+            <p class="text-lg font-bold gradient-text mb-2">Waterfall Rise</p>
+            <p class="mb-4">&copy; 2025 Waterfall Rise. All rights reserved.</p>
+            <p class="text-sm">
+                Incubated by <a href="index.html" class="underline hover:text-sky-400 transition-colors">Perseion
+                    DAO</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Menú móvil
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Generador de "Digital Waterfall"
+        const waterfallContainer = document.getElementById('waterfall');
+        if (waterfallContainer) {
+            for (let i = 0; i < 50; i++) {
+                const stream = document.createElement('div');
+                stream.className = 'stream';
+                stream.style.left = `${Math.random() * 100}%`;
+                stream.style.animationDuration = `${Math.random() * 10 + 10}s`;
+                stream.style.animationDelay = `${Math.random() * -20}s`;
+                waterfallContainer.appendChild(stream);
+            }
+        }
+
+        // Animación "On-Scroll"
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>

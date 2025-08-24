@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perseion Earn | Private Equity On-Chain</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        /* Estilos originales de Crescenta mantenidos */
+        .fund-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .fund-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #3b82f6;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <!-- Logo Adaptado -->
+                <h1 class="text-2xl font-bold text-blue-600">Perseion Earn</h1>
+            </a>
+
+            <div class="hidden md:flex space-x-8">
+                <a href="#funds" class="nav-link font-medium">Invest</a>
+                <a href="#learn" class="nav-link font-medium">Learn & Grow</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="#contact" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">Access
+                    Platform</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-blue-50 to-white py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        Invest as you <span class="text-blue-600">imagine</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8">
+                        The first on-chain platform for tokenized Private Equity funds.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#contact"
+                            class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center">
+                            <i class="fas fa-user-plus mr-2"></i> Request Access
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                        alt="Investment" class="rounded-xl shadow-lg w-full">
+                </div>
+            </div>
+
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-star text-blue-600"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">Exclusive Funds</h3>
+                    </div>
+                    <p class="text-gray-600">We unlock investment in global Private Equity funds. Co-invest with the
+                        most experienced institutional investors to add this asset to your portfolio.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-chart-line text-blue-600"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">Expert Selection</h3>
+                    </div>
+                    <p class="text-gray-600">We select less than 3% of the funds we analyze. We configure concentrated
+                        portfolios with 5-7 funds so you can optimize your diversification with a single investment.</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-percent text-blue-600"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">Double-Digit Returns</h3>
+                    </div>
+                    <p class="text-gray-600">Access funds from managers with decades of experience and a consistent
+                        track record of double-digit returns. Invest from 10,000 USDC and up to millions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funds Section -->
+    <section id="funds" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold">Available Funds</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Fund 1 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden fund-card">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Perseion PE Real Assets I</h3>
+                            <span class="text-xs px-2 py-1 bg-green-100 text-green-800 rounded">Open</span>
+                        </div>
+
+                        <p class="text-gray-600 mb-6">Primarily invests in infrastructure, Real Estate, and energy
+                            funds, with a focus on the US market. Its goal is to generate returns through asset
+                            appreciation and the income streams they produce, offering diversification and inflation
+                            protection.</p>
+
+                        <div class="flex flex-wrap gap-3 mb-6">
+                            <span class="flex items-center text-sm text-gray-600"><i
+                                    class="fas fa-globe mr-2 text-blue-600"></i> Global</span>
+                            <span class="flex items-center text-sm text-gray-600"><i
+                                    class="fas fa-chart-pie mr-2 text-blue-600"></i> Portfolio</span>
+                            <span class="flex items-center text-sm text-gray-600"><i
+                                    class="fas fa-building mr-2 text-blue-600"></i> Infrastructure, Real Estate</span>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div>
+                                <p class="text-sm text-gray-500">Target MOIC</p>
+                                <p class="font-bold">x1.5*</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Target IRR</p>
+                                <p class="font-bold">12%*</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Min. Investment</p>
+                                <p class="font-bold">1,000 USDT</p>
+                            </div>
+                        </div>
+
+                        <a href="#contact"
+                            class="w-full block text-center py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                            <i class="fas fa-heart mr-2"></i> I'm interested
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Fund 2 -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden fund-card">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h3 class="text-xl font-bold">Perseion PE Buyouts II</h3>
+                            <span class="text-xs px-2 py-1 bg-green-100 text-green-800 rounded">Open</span>
+                        </div>
+
+                        <p class="text-gray-600 mb-6">A portfolio of funds investing in top international Private Equity
+                            Buyouts. This strategy is dedicated to taking majority stakes in mature companies and
+                            implementing strategies focused on business growth through operational and financial
+                            improvements over an average period of 3-5 years.</p>
+
+                        <div class="flex flex-wrap gap-3 mb-6">
+                            <span class="flex items-center text-sm text-gray-600"><i
+                                    class="fas fa-globe mr-2 text-blue-600"></i> Global</span>
+                            <span class="flex items-center text-sm text-gray-600"><i
+                                    class="fas fa-chart-pie mr-2 text-blue-600"></i> Portfolio</span>
+                            <span class="flex items-center text-sm text-gray-600"><i
+                                    class="fas fa-handshake mr-2 text-blue-600"></i> PE Buyouts</span>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 mb-6">
+                            <div>
+                                <p class="text-sm text-gray-500">Target MOIC</p>
+                                <p class="font-bold">x2*</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Target IRR</p>
+                                <p class="font-bold">15%*</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Min. Investment</p>
+                                <p class="font-bold">100 USDT</p>
+                            </div>
+                        </div>
+
+                        <a href="#contact"
+                            class="w-full block text-center py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                            <i class="fas fa-heart mr-2"></i> I'm interested
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 text-sm text-gray-500">
+                <p>*Target based on the simulated historical net return obtained by previous funds with the same
+                    strategy. Past performance is not a reliable indicator of future results. More information on risks
+                    and conditions available upon request.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-12">Become a <span class="text-blue-600">Long-Term</span>
+                Investor</h2>
+            <p class="text-xl text-center mb-12 max-w-3xl mx-auto">Start investing with a few clicks.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-user-plus text-blue-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Create your account</h3>
+                    <p class="text-gray-600">Register at no cost or commitment and access the Perseion Earn ecosystem.
+                        Complete a simple on-chain onboarding process.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-blue-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-chart-line text-blue-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Access the funds</h3>
+                    <p class="text-gray-600">Discover complete information about the funds, strategy details, and
+                        commentary from our investment team.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-blue-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-coins text-blue-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Invest</h3>
+                    <p class="text-gray-600">Start building your portfolio. With our advisory tool, you can see the
+                        funds that best fit your profile and objectives.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learn Section -->
+    <section id="learn" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-8">Learn and Grow</h2>
+            <p class="text-xl mb-8">Invest like the best. Grow with every lesson.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Learn Item 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-sm font-medium text-blue-600">Article</span>
+                            <span class="text-sm text-gray-500 flex items-center"><i class="far fa-clock mr-1"></i> 3
+                                min</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">What books are the Perseion team reading?</h3>
+                        <a href="#contact" class="text-blue-600 hover:underline flex items-center">Read more <i
+                                class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+
+                <!-- Learn Item 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-sm font-medium text-blue-600">Masterclass</span>
+                            <span class="text-sm text-gray-500 flex items-center"><i class="far fa-clock mr-1"></i> 7
+                                min</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Private Capital: Impact Beyond Returns</h3>
+                        <a href="#contact" class="text-blue-600 hover:underline flex items-center">Read more <i
+                                class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+
+                <!-- Learn Item 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <span class="text-sm font-medium text-blue-600">Masterclass</span>
+                            <span class="text-sm text-gray-500 flex items-center"><i class="far fa-clock mr-1"></i> 8
+                                min</span>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">Investing in Tech: Venture Capital vs PE Growth</h3>
+                        <a href="#contact" class="text-blue-600 hover:underline flex items-center">Read more <i
+                                class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">Invest as you <span class="text-blue-200">imagine</span></h2>
+            <a href="#contact"
+                class="px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition font-bold">
+                <i class="fas fa-user-plus mr-2"></i> Join Perseion Earn
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <h3 class="font-bold text-2xl mb-4">Contact Us</h3>
+                <p class="text-gray-400 mb-4">For partnership inquiries or to request early access, please reach out to
+                    our team.</p>
+                <a href="mailto:perseion@financier.com"
+                    class="text-blue-400 text-xl hover:underline">perseion@financier.com</a>
+            </div>
+            <div class="border-t border-gray-800 pt-8 mt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                    <div class="mb-4 md:mb-0">
+                        <h3 class="font-bold text-lg">Perseion Earn</h3>
+                        <p class="text-gray-500 text-sm">&copy; 2025 Perseion Earn. All rights reserved.</p>
+                    </div>
+                    <div class="text-sm text-gray-500">
+                        <p>Incubated by <a href="index.html" class="underline hover:text-white">Perseion DAO</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
